@@ -1,14 +1,14 @@
 steps:
-  - label: "Construcción"
+  - label: ":construction_worker: Build"
     command: "npm install && npm run build"
     key: "build"
 
-  - label: "Pruebas"
+  - label: ":white_check_mark: Test"
     command: "npm test"
     key: "test"
     depends_on: "build"
 
-  - label: "Despliegue"
+  - label: ":rocket: Deployment"
     command: "npm start"
     key: "deploy"
     depends_on: "test"
