@@ -1,6 +1,7 @@
 steps:
   - label: ':construction_worker: Build'
     command: 'npm install'
+    key: 'build'
     plugins:
       - docker#v3.8.0:
           image: 'node:20.10.0-alpine3.18'
@@ -10,20 +11,22 @@ steps:
   
   - label: ':white_check_mark: Test'
     command: 'npm test'
+    key: 'test'
     plugins:
       - docker#v3.8.0:
           image: 'node:20.10.0-alpine3.18'
           workdir: '/app'
           environment:
             - 'PORT=3000'
-    depends_on: 'Construcción'
+    depends_on: 'build'
   
   - label: ':rocket: Deploy'
     command: 'npm start'
+    key: 'deploy'
     plugins:
       - docker#v3.8.0:
           image: 'node:20.10.0-alpine3.18'
           workdir: '/app'
           environment:
             - 'PORT=3000'
-    depends_on: 'Pruebas'
+    depends_on: 'test'
