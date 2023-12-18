@@ -1,0 +1,14 @@
+steps:
+  - label: "Construcción"
+    command: "npm install && npm run build"
+    key: "build"
+
+  - label: "Pruebas"
+    command: "npm test"
+    key: "test"
+    depends_on: "build"
+
+  - label: "Despliegue"
+    command: "npm start"
+    key: "deploy"
+    depends_on: "test"
