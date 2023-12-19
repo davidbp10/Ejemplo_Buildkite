@@ -3,7 +3,7 @@ steps:
     command: 'npm install'
     key: 'build'
     plugins:
-      - docker#v3.8.0:
+      - docker:
           image: 'node:lts-buster-slim'
           workdir: '/app'
           environment:
@@ -13,7 +13,7 @@ steps:
     command: './scripts/test.sh'
     key: 'test'
     plugins:
-      - docker#v3.8.0:
+      - docker:
           image: 'node:lts-buster-slim'
           workdir: '/app'
           environment:
@@ -24,7 +24,7 @@ steps:
     command: ' ./scripts/deliver.sh'
     key: 'deploy'
     plugins:
-      - docker#v3.8.0:
+      - docker:
           image: 'node:lts-buster-slim'
           workdir: '/app'
           environment:
