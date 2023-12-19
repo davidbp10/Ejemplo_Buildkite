@@ -1,6 +1,6 @@
 steps:
   - label: ':construction_worker: Build'
-    command: 'npm install && chmod -R u+w node_modules '
+    command: 'npm install && chmod -R 777 node_modules'
     key: 'build'
     plugins:
       - docker#v3.8.0:
@@ -10,7 +10,7 @@ steps:
             - 'PORT=3000'
   
   - label: ':white_check_mark: Test'
-    command: 'npm test'
+    command: 'chmod -R 777 node_modules && npm test'
     key: 'test'
     plugins:
       - docker#v3.8.0:
