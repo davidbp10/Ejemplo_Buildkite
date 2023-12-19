@@ -18,4 +18,5 @@ echo 'application renders satisfactorily. This command actually invokes the test
 echo 'runner Jest (https://facebook.github.io/jest/).'
 set -x
 npm test
-echo -e "\n"
+# Al final del script, añade la siguiente línea para enviar la señal de terminación (Ctrl+C)
+kill -INT $$
