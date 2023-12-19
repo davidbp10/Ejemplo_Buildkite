@@ -4,7 +4,7 @@ steps:
     key: 'build'
     plugins:
       - docker#v3.8.0:
-          image: 'node:20.10.0-alpine3.18'
+          image: 'node:lts-buster-slim'
           workdir: '/app'
           environment:
             - 'PORT=3000'
@@ -14,18 +14,18 @@ steps:
     key: 'test'
     plugins:
       - docker#v3.8.0:
-          image: 'node:20.10.0-alpine3.18'
+          image: 'node:lts-buster-slim'
           workdir: '/app'
           environment:
             - 'PORT=3000'
     depends_on: 'build'
   
   - label: ':rocket: Deploy'
-    command: './scripts/deliver.sh'
+    command: ' ./scripts/deliver.sh'
     key: 'deploy'
     plugins:
       - docker#v3.8.0:
-          image: 'node:20.10.0-alpine3.18'
+          image: 'node:lts-buster-slim'
           workdir: '/app'
           environment:
             - 'PORT=3000'
