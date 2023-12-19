@@ -1,6 +1,6 @@
 steps:
   - label: ':construction_worker: Build'
-    command: 'chmod -R u+w node_modules && npm install'
+    command: 'npm install && chmod -R u+w node_modules '
     key: 'build'
     plugins:
       - docker#v3.8.0:
