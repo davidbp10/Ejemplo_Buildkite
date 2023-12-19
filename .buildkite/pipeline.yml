@@ -10,7 +10,7 @@ steps:
             - 'PORT=3000'
   
   - label: ':white_check_mark: Test'
-    command: 'echo 'Tests realizados con éxito''
+    command: 'echo "Tests realizados con éxito"'
     key: 'test'
     plugins:
       - docker#v3.8.0:
