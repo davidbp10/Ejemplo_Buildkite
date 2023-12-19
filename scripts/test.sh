@@ -17,6 +17,6 @@ echo 'The following "npm" command tests that your simple Node.js/React'
 echo 'application renders satisfactorily. This command actually invokes the test'
 echo 'runner Jest (https://facebook.github.io/jest/).'
 set -x
-npm test
-# Al final del script, añade la siguiente línea para enviar la señal de terminación (Ctrl+C)
-kill -INT $$
+npm test -- --watchAll=false
+set +x
+echo "Tests completed"'
