@@ -1,6 +1,6 @@
 steps:
   - label: ':construction_worker: Build'
-    command: 'mkdir proyecto-react && cd proyecto-react && npm install -g npm@10.2.5 && chmod -R 777 node_modules'
+    command: 'mkdir proyecto-react && cd proyecto-react && npm install -g npm@10.2.5 && ls && chmod -R 777 node_modules'
     key: 'build'
     plugins:
       - docker#v3.8.0:
