@@ -1,6 +1,6 @@
 steps:
   - label: ':construction_worker: Build'
-    command: 'npm install -g npm@10.2.5'
+    command: 'npm install'
     key: 'build'
     plugins:
       - docker#v3.8.0:
