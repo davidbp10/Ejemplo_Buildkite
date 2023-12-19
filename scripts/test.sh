@@ -18,5 +18,4 @@ echo 'application renders satisfactorily. This command actually invokes the test
 echo 'runner Jest (https://facebook.github.io/jest/).'
 set -x
 npm test --watchAll=false
-set +x
 echo "Tests completed"'
