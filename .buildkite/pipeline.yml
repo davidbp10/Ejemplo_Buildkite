@@ -1,6 +1,6 @@
 steps:
   - label: ':construction_worker: Build'
-    command: 'npm install -g npm@10.2.5 && ls && chmod -R 777 node_modules'
+    command: 'npm install -g npm@10.2.5'
     key: 'build'
     plugins:
       - docker#v3.8.0:
@@ -10,7 +10,7 @@ steps:
             - 'PORT=3000'
   
   - label: ':white_check_mark: Test'
-    command: 'cd proyecto react && chmod -R 777 node_modules && npm test'
+    command: './scripts/test.sh'
     key: 'test'
     plugins:
       - docker#v3.8.0:
@@ -21,7 +21,7 @@ steps:
     depends_on: 'build'
   
   - label: ':rocket: Deploy'
-    command: 'npm start'
+    command: './scripts/deliver.sh'
     key: 'deploy'
     plugins:
       - docker#v3.8.0:
